@@ -66,7 +66,7 @@
         <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="LoginLogout - CSV Data" enabled="true">
           <stringProp name="delimiter">,</stringProp>
           <stringProp name="fileEncoding"></stringProp>
-          <stringProp name="filename">D:/Industry Connect/Internship/Tasks/Performance Task/Testdata.csv</stringProp>
+          <stringProp name="filename">D:/Industry Connect/Internship/Tasks/Sprint3.PerformanceTask/Testdata.csv</stringProp>
           <boolProp name="ignoreFirstLine">false</boolProp>
           <boolProp name="quotedData">false</boolProp>
           <boolProp name="recycle">true</boolProp>
@@ -386,7 +386,7 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <stringProp name="LoopController.loops">2</stringProp>
         </elementProp>
         <stringProp name="ThreadGroup.num_threads">5</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
@@ -399,7 +399,7 @@
         <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="LoginLogout - CSV Data" enabled="true">
           <stringProp name="delimiter">,</stringProp>
           <stringProp name="fileEncoding"></stringProp>
-          <stringProp name="filename">D:/Industry Connect/Internship/Tasks/Performance Task/Testdata.csv</stringProp>
+          <stringProp name="filename">D:/Industry Connect/Internship/Tasks/Sprint3.PerformanceTask/Testdata.csv</stringProp>
           <boolProp name="ignoreFirstLine">false</boolProp>
           <boolProp name="quotedData">false</boolProp>
           <boolProp name="recycle">true</boolProp>
@@ -411,7 +411,7 @@
         <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Search-CSV Data" enabled="true">
           <stringProp name="delimiter">,</stringProp>
           <stringProp name="fileEncoding"></stringProp>
-          <stringProp name="filename">D:/Industry Connect/Internship/Tasks/Performance Task/SearchTestData.csv</stringProp>
+          <stringProp name="filename">D:/Industry Connect/Internship/Tasks/Sprint3.PerformanceTask/SearchTestData.csv</stringProp>
           <boolProp name="ignoreFirstLine">false</boolProp>
           <boolProp name="quotedData">false</boolProp>
           <boolProp name="recycle">true</boolProp>
@@ -548,6 +548,10 @@
               <intProp name="Assertion.test_type">16</intProp>
             </ResponseAssertion>
             <hashTree/>
+            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Duration Assertion" enabled="true">
+              <stringProp name="DurationAssertion.duration">1000</stringProp>
+            </DurationAssertion>
+            <hashTree/>
           </hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="User Authentication Verification" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
@@ -592,7 +596,7 @@
               </collectionProp>
             </HeaderManager>
             <hashTree/>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code Assertion" enabled="true">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="49586">200</stringProp>
               </collectionProp>
@@ -602,6 +606,21 @@
               <intProp name="Assertion.test_type">16</intProp>
             </ResponseAssertion>
             <hashTree/>
+            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Duration Assertion" enabled="true">
+              <stringProp name="DurationAssertion.duration">500</stringProp>
+            </DurationAssertion>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-2078155452">username&quot;:&quot;Charlie&quot;</stringProp>
+                <stringProp name="159883200">username&quot;:&quot;Glen&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">48</intProp>
+            </ResponseAssertion>
+            <hashTree/>
           </hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Search Specific Subcategory and User" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -609,7 +628,7 @@
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&quot;terms&quot;:{&quot;searchString&quot;:&quot;automation&quot;,&quot;categoryIndex&quot;:&quot;2&quot;,&quot;subcategoryIndex&quot;:&quot;2&quot;,&quot;uId&quot;:null},&quot;sortPagination&quot;:{&quot;offset&quot;:0,&quot;limit&quot;:9}}</stringProp>
+                  <stringProp name="Argument.value">{&quot;terms&quot;:{&quot;searchString&quot;:&quot;${Skill}&quot;,&quot;categoryIndex&quot;:&quot;${Cat}&quot;,&quot;subcategoryIndex&quot;:&quot;${Sub}&quot;,&quot;uId&quot;:null},&quot;sortPagination&quot;:{&quot;offset&quot;:0,&quot;limit&quot;:9}}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
@@ -649,15 +668,16 @@
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="-927949388">&quot;sellerName&quot;:&quot;Richa Vyas&quot;</stringProp>
+                <stringProp name="193444150">&quot;sellerName&quot;:&quot;Aleena Paul&quot;</stringProp>
               </collectionProp>
               <stringProp name="Assertion.custom_message"></stringProp>
               <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
               <boolProp name="Assertion.assume_success">false</boolProp>
-              <intProp name="Assertion.test_type">16</intProp>
+              <intProp name="Assertion.test_type">48</intProp>
             </ResponseAssertion>
             <hashTree/>
             <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Duration Assertion" enabled="true">
-              <stringProp name="DurationAssertion.duration">1000</stringProp>
+              <stringProp name="DurationAssertion.duration">5000</stringProp>
             </DurationAssertion>
             <hashTree/>
           </hashTree>
